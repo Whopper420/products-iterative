@@ -1,9 +1,154 @@
-@import 'tailwindcss';
+/* Vispārīgie noteikumi */
+* {
+    box-sizing: border-box;
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+body {
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+    background: #f3f4f6;
+    line-height: 1.6;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Holy Grail izkārtojums */
+.page-layout {
+    min-height: 100vh;
+    display: grid;
+
+    grid-template-columns: 220px minmax(0, 1fr) 220px;
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas:
+        "header header header"
+        "left   main   right"
+        "footer footer footer";
+}
+
+/* Galvene */
+.site-header {
+    grid-area: header;
+    padding: 20px;
+    background: #1e293b;
+    color: white;
+}
+
+.site-header h1 {
+    margin-top: 0;
+}
+
+.site-header nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.site-header a {
+    color: white;
+}
+
+/* Kreisā un labā sānjosla */
+.left-sidebar,
+.right-sidebar {
+    padding: 20px;
+}
+
+.left-sidebar {
+    grid-area: left;
+    background: #e2e8f0;
+}
+
+.right-sidebar {
+    grid-area: right;
+    background: #e2e8f0;
+}
+
+/* Galvenais saturs */
+.main-content {
+    grid-area: main;
+    min-width: 0;
+    padding: 24px;
+    background: white;
+}
+
+.product {
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+/* Paziņojumi un formas */
+.success {
+    padding: 12px;
+    color: #166534;
+    background: #dcfce7;
+    border-radius: 6px;
+}
+
+.error {
+    color: #dc2626;
+}
+
+input,
+textarea,
+button {
+    display: block;
+    max-width: 100%;
+    margin: 8px 0 16px;
+    padding: 10px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Kājene */
+.site-footer {
+    grid-area: footer;
+    padding: 16px;
+    text-align: center;
+    background: #1e293b;
+    color: white;
+}
+
+/* Pielāgojums mobilajiem ekrāniem */
+@media (max-width: 768px) {
+    .page-layout {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto 1fr auto auto;
+
+        grid-template-areas:
+            "header"
+            "left"
+            "main"
+            "right"
+            "footer";
+    }
+
+    .site-header,
+    .left-sidebar,
+    .right-sidebar,
+    .main-content {
+        padding: 16px;
+    }
 }

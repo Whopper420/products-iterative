@@ -1,7 +1,7 @@
 <?php
 
-test('the application returns a successful response', function () {
+test('the root url redirects to the product list', function () {
     $response = $this->get('/');
 
-    $response->assertStatus(200);
+    $response->assertRedirect(route('products.index'));
 });

@@ -72,6 +72,15 @@ a:hover {
     background: #e2e8f0;
 }
 
+.left-sidebar .sidebar-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .right-sidebar {
     grid-area: right;
     background: #e2e8f0;

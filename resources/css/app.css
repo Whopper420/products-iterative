@@ -51,6 +51,15 @@ a:hover {
     margin-top: 0;
 }
 
+.site-logo {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #93c5fd;
+}
+
 .site-header nav {
     display: flex;
     gap: 20px;
@@ -84,6 +93,13 @@ a:hover {
 .right-sidebar {
     grid-area: right;
     background: #e2e8f0;
+}
+
+.right-sidebar .ad {
+    padding: 12px;
+    background: #fef08a;
+    border: 1px dashed #ca8a04;
+    border-radius: 6px;
 }
 
 /* Galvenais saturs */

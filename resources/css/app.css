@@ -52,12 +52,10 @@ a:hover {
 }
 
 .site-logo {
-    margin: 0;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    width: 500px;
+    height: 70px;
     color: #93c5fd;
+    background-color: #ffff00;
 }
 
 .site-header nav {

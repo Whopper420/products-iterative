@@ -14,7 +14,7 @@
     <div class="page-layout">
 
         <header class="site-header">
-            <p class="site-logo">TEST LOGO</p>
+            <img src="https://web-assets.mykoob.lv/login-frontend/assets/mykoob-logo-dark-DX3tqsaM.png" class="site-logo">
             <h1>Produktu pārvaldība</h1>
         </header>
 
@@ -43,11 +43,11 @@
         <aside class="right-sidebar" aria-label="Papildu informācija">
             <h2>Informācija</h2>
             <p>Šeit var ievietot papildu informāciju par produktiem.</p>
-            <p class="ad">TEST REKLĀMA: Šeit būsvas īpaša produktu reklamācijas!</p>
+            <p class="ad">Pievienojies CCP un Saņem 23 brīvas reklāmas</p>
         </aside>
 
         <footer class="site-footer">
-            <p>&copy; {{ date('Y') }} TEST COPYRIGHT — Produktu pārvaldība</p>
+            <p>&copy; {{ date('Y') }} COPYRIGHT — Latvian Illuminati</p>
         </footer>
 
     </div>

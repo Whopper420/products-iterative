@@ -33,11 +33,11 @@
         </aside>
 
         <main class="main-content">
-            @if (session('success'))
-                <p class="success" role="status">{{ session('success') }}</p>
-            @endif
+            <x-flash.error />
 
             {{ $slot }}
+
+            <x-flash.success />
         </main>
 
         <aside class="right-sidebar" aria-label="Papildu informācija">

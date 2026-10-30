@@ -19,8 +19,10 @@ class ProductFactory extends Factory
     {
         return [
             'name' => fake()->words(3, true),
+            'quantity' => fake()->numberBetween(0, 250),
             'description' => fake()->sentence(),
-            'price' => fake()->randomFloat(2, 1, 999),
+            'expiration_date' => fake()->dateTimeBetween('-1 year', '+1 year')->format('Y-m-d'),
+            'status' => fake()->randomElement(['active', 'inactive', 'discontinued']),
         ];
     }
 }

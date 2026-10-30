@@ -118,6 +118,22 @@ a:hover {
 }
 
 /* Paziņojumi un formas */
+.flash {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.flash-success {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.flash-error {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
 .success {
     padding: 12px;
     color: #166534;

@@ -49,8 +49,10 @@ test('the create form posts to the named store route', function () {
 test('a product can be stored', function () {
     $payload = [
         'name' => 'Tastatūra',
+        'quantity' => 10,
         'description' => 'Mehāniska tastatūra',
-        'price' => 49.99,
+        'expiration_date' => '2027-01-01',
+        'status' => 'active',
     ];
 
     $response = $this->post(route('products.store'), $payload);
@@ -66,11 +68,12 @@ test('storing a product requires valid data', function () {
     $response = $this->from(route('products.create'))
         ->post(route('products.store'), [
             'name' => '',
-            'price' => -5,
+            'quantity' => -5,
+            'status' => 'bogus',
         ]);
 
     $response->assertRedirect(route('products.create'))
-        ->assertSessionHasErrors(['name', 'price']);
+        ->assertSessionHasErrors(['name', 'quantity', 'status']);
 
     $this->assertDatabaseCount('products', 0);
 });
@@ -78,13 +81,13 @@ test('storing a product requires valid data', function () {
 test('the show page displays a single product', function () {
     $product = Product::factory()->create([
         'name' => 'Dators',
-        'price' => 1000,
+        'quantity' => 5,
+        'status' => 'active',
     ]);
 
     $this->get(route('products.show', $product))
         ->assertOk()
-        ->assertSee('Dators')
-        ->assertSee('1,000.00');
+        ->assertSee('Dators');
 });
 
 test('the edit form is prefilled with the product', function () {
@@ -100,8 +103,10 @@ test('a product can be updated', function () {
 
     $response = $this->put(route('products.update', $product), [
         'name' => 'Atjaunots produkts',
+        'quantity' => 20,
         'description' => 'Mainīts apraksts',
-        'price' => 15.5,
+        'expiration_date' => '2027-06-01',
+        'status' => 'inactive',
     ]);
 
     $response->assertRedirect(route('products.index'));
@@ -135,9 +140,9 @@ test('the stylesheet loaded through vite defines the holy grail grid', function 
 
 test('a failed validation shows red text so the stylesheet is visibly applied', function () {
     $response = $this->from(route('products.create'))
-        ->post(route('products.store'), ['name' => '', 'price' => 'abc']);
+        ->post(route('products.store'), ['name' => '', 'quantity' => -5, 'status' => 'bogus']);
 
-    $response->assertSessionHasErrors(['name', 'price']);
+    $response->assertSessionHasErrors(['name', 'quantity', 'status']);
 
     $this->get(route('products.create'))
         ->assertOk()

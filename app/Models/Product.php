@@ -13,7 +13,14 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'quantity',
         'description',
-        'price',
+        'expiration_date',
+        'status',
+    ];
+
+    protected $casts = [
+        'expiration_date' => 'date',
+        'quantity' => 'integer',
     ];
 }

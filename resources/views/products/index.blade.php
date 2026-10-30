@@ -8,7 +8,7 @@
         <article class="product">
             <h3>{{ $product->name }}</h3>
             <p>{{ $product->description }}</p>
-            <p>Cena: {{ number_format($product->price, 2) }} €</p>
+            <p>Daudzums: {{ $product->quantity }}</p>
 
             <a href="{{ route('products.show', $product) }}">Apskatīt</a>
             <a href="{{ route('products.edit', $product) }}">Rediģēt</a>
